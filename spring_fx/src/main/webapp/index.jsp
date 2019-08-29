@@ -7,6 +7,6 @@
 <title></title>
 </head>
 <body>
-${name}
+${info}
 </body>
 </html>

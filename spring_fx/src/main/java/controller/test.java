@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class test {
 
 	@RequestMapping("index")
-	public void index(String name ,ModelMap m) {
-		m.put("name", name);
+	public void index(String txt ,ModelMap m) {
+		m.put("info", txt);
 		
 	}
 }
