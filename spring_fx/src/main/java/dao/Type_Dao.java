@@ -12,5 +12,5 @@ import entity.Type;
 public interface Type_Dao {
 
 	@Select("select * from type ${where}")
-	public List<Type> select(@Param("where") String where);
+	public List<Type> index(@Param("where") String where);
 }

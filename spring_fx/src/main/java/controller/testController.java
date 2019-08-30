@@ -14,11 +14,11 @@ public class testController {
 	Type_Service tservice;
 	
 	@RequestMapping("index")
-	public String select(String name,ModelMap m) {
+	public String index(String name,ModelMap m) {
 		String where="";
 		if(name!=null&&name.length()>0)
 			where=" where name like '%"+name+"%'";
-		m.put("typelist", tservice.select(name));
+		m.put("typelist", tservice.index(where));
 		return "index";
 	}
 }

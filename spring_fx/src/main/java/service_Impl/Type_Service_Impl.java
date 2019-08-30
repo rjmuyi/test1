@@ -14,8 +14,8 @@ public class Type_Service_Impl implements Type_Service{
 
 	@Autowired
 	Type_Dao dao;
-	public List<Type> select(String where){
+	public List<Type> index(String where){
 		
-			return dao.select(where);
+			return dao.index(where);
 	}
 }
