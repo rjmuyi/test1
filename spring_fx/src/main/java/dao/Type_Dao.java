@@ -11,6 +11,6 @@ import entity.Type;
 @Repository
 public interface Type_Dao {
 
-	@Select("select * from type ${txt}")
-	public List<Type> select(@Param("txt") String txt);
+	@Select("select * from type ${where}")
+	public List<Type> select(@Param("where") String where);
 }

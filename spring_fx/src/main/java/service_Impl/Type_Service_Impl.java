@@ -14,10 +14,8 @@ public class Type_Service_Impl implements Type_Service{
 
 	@Autowired
 	Type_Dao dao;
-	public List<Type> select(String txt){
-		if(txt==null||txt=="")
-			return dao.select("");
-		else
-			return dao.select(" where name like '%"+txt+"%'");
+	public List<Type> select(String where){
+		
+			return dao.select(where);
 	}
 }

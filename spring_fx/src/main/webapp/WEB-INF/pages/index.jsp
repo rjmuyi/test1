@@ -15,12 +15,12 @@
 </form>
 <table>
 <tr>
-<td>编号</td><td>名称</td><td>状态</td>
+<td>编号</td><td>名称</td>
 </tr>
 
 <c:forEach items="${typelist}" var="r">
 <tr>
-<td>${r.id}</td><td>${r.name}</td><td>${r.status}</td>
+<td>${r.id}</td><td>${r.name}</td>
 </tr>
 </c:forEach>
 </table>

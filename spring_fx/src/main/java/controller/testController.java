@@ -15,6 +15,9 @@ public class testController {
 	
 	@RequestMapping("index")
 	public String select(String name,ModelMap m) {
+		String where="";
+		if(name!=null&&name.length()>0)
+			where=" where name like '%"+name+"%'";
 		m.put("typelist", tservice.select(name));
 		return "index";
 	}

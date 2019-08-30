@@ -4,16 +4,14 @@ public class Type {
 
 	private int id;
 	private String name;
-	private int status;
 	public Type() {
 		
 	}
 	
-	public Type(int id, String name, int status) {
+	public Type(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.status = status;
 	}
 
 	public int getId() {
@@ -27,12 +25,6 @@ public class Type {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public int getStatus() {
-		return status;
-	}
-	public void setStatus(int status) {
-		this.status = status;
 	}
 	
 }

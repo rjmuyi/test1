@@ -6,5 +6,5 @@ import entity.Type;
 
 public interface Type_Service {
 
-	public List<Type> select(String txt);
+	public List<Type> select(String where);
 }
