@@ -14,7 +14,7 @@ import entity.Type;
 @Repository
 public interface Type_Dao {
 
-	@Select("select * from type ${where}")
+	@Select("select Type.*,book.name bookname from type inner join book on type.bookid=book.id ${where}")
 	public List<Type> select(@Param("where") String where);
 	
 	@Select("select * from type where id=#{id}")
@@ -23,9 +23,9 @@ public interface Type_Dao {
 	@Delete("delete from type where id=#{id}")
 	public void delete(int id);
 	
-	@Insert("insert into type(name) values(#{name})")
+	@Insert("insert into type(name,sex,bookid) values(#{name},#{sex},#{bookid})")
 	public void insert(Type t);
 	
-	@Update("update type set name=#{name} where id=#{id}")
+	@Update("update type set name=#{name},sex=#{sex},bookid=#{bookid} where id=#{id}")
 	public void update(Type t);
 }

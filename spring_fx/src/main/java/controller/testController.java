@@ -1,11 +1,16 @@
 package controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import entity.Book;
 import entity.Type;
+import service.Book_Service;
 import service.Type_Service;
 
 @Controller
@@ -14,11 +19,14 @@ public class testController {
 	@Autowired
 	Type_Service tservice;
 	
+	@Autowired
+	Book_Service bservice;
+	
 	@RequestMapping("index")
 	public String index(String name,ModelMap m) {
 		String where="";
 		if(name!=null&&name.length()>0)
-			where=" where name like '%"+name+"%'";
+			where=" where type.name like '%"+name+"%'";
 		m.put("typelist", tservice.select(where));
 		return "index";
 	}
@@ -37,6 +45,8 @@ public class testController {
 	
 	@RequestMapping("add")
 	public String add(ModelMap m){
+		m.put("sexs", Type.sexs);
+		m.put("booklist", bservice.select());
 		return "edit";
 	}
 	
@@ -51,4 +61,5 @@ public class testController {
 		m.put("info", tservice.selectById(id));
 		return add(m);
 	}
+	
 }
