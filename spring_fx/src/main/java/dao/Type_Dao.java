@@ -12,5 +12,5 @@ import entity.Type;
 public interface Type_Dao {
 
 	@Select("select * from type ${txt}")
-	public List<Type> select(@Param(value= "txt") String txt);
+	public List<Type> select(@Param("txt") String txt);
 }

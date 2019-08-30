@@ -11,7 +11,7 @@
 
 <form action="index" method="post">
 <input name="name">
-<input type="submit">
+<input type="submit" value="查询">
 </form>
 <table>
 <tr>
