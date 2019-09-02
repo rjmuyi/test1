@@ -6,15 +6,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import entity.Book;
+import entity.Type;
 import service.Book_Service;
 import service.Type_Service;
 
 @Controller
-@RequestMapping("Book")
-public class BookController {
-
-	@Autowired
-	Book_Service bservice;
+@RequestMapping("Type")
+public class TypeController {
 	
 	@Autowired
 	Type_Service tservice;
@@ -24,38 +22,38 @@ public class BookController {
 		String where="";
 		if(name!=null&&name.length()>0)
 			where=" where book.name like '%"+name+"%'";
-		m.put("booklist", bservice.select(where));
-		return "Book/index";
+		m.put("typelist", tservice.select(where));
+		return "Type/index";
 	}
 	
 	@RequestMapping("delete")
 	public String delete(int id,ModelMap m) {
-		bservice.delete(id);
+		tservice.delete(id);
 		return index(null,m);
 	}
 	
 	@RequestMapping("insert")
-	public String insert(Book b,ModelMap m){
-		bservice.insert(b);
+	public String insert(Type b,ModelMap m){
+		tservice.insert(b);
 		return index(null,m);
 	}
 	
 	@RequestMapping("add")
 	public String add(ModelMap m){
 		m.put("sexs", Book.sexs);
-		m.put("typelist", tservice.select());
-		return "Book/edit";
+		m.put("typelist", tservice.select(where));
+		return "Type/edit";
 	}
 	
 	@RequestMapping("update")
 	public String update(Book b,ModelMap m){
-		bservice.update(b);
+		tservice.update(b);
 		return index(null,m);
 	}
 	
 	@RequestMapping("edit")
 	public String edit(int id,ModelMap m){
-		m.put("info", bservice.selectById(id));
+		m.put("info", tservice.selectById(id));
 		return add(m);
 	}
 	
