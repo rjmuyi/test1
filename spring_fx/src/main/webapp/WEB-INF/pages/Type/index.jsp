@@ -26,7 +26,7 @@ function del(id){
 <td>编号</td><td>名称</td><td>操作</td>
 </tr>
 
-<c:forEach items="${booklist}" var="r">
+<c:forEach items="${typelist}" var="r">
 <tr>
 <td>${r.id}</td><td>${r.name}</td>
 <td><a href="edit?id=${r.id}">修改</a></td>

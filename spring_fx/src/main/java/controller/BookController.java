@@ -43,7 +43,7 @@ public class BookController {
 	@RequestMapping("add")
 	public String add(ModelMap m){
 		m.put("sexs", Book.sexs);
-		m.put("typelist", tservice.select());
+		m.put("typelist", tservice.select(null));
 		return "Book/edit";
 	}
 	

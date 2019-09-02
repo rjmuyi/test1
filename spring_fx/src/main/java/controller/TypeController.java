@@ -5,9 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import entity.Book;
 import entity.Type;
-import service.Book_Service;
 import service.Type_Service;
 
 @Controller
@@ -21,7 +19,7 @@ public class TypeController {
 	public String index(String name,ModelMap m) {
 		String where="";
 		if(name!=null&&name.length()>0)
-			where=" where book.name like '%"+name+"%'";
+			where=" where type.name like '%"+name+"%'";
 		m.put("typelist", tservice.select(where));
 		return "Type/index";
 	}
@@ -40,13 +38,11 @@ public class TypeController {
 	
 	@RequestMapping("add")
 	public String add(ModelMap m){
-		m.put("sexs", Book.sexs);
-		m.put("typelist", tservice.select(where));
 		return "Type/edit";
 	}
 	
 	@RequestMapping("update")
-	public String update(Book b,ModelMap m){
+	public String update(Type b,ModelMap m){
 		tservice.update(b);
 		return index(null,m);
 	}
