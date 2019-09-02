@@ -13,15 +13,15 @@
 <form action="insert" method="post">
 <input name="name" value="${info.name}">
 <select name="sex">
-<c:forEach items="${sexs}" var="r" varStatus="v">
-<option value="${v.index}">${r}</option>
-</c:forEach>
+   <c:forEach items="${sexs}" var="r" varStatus="v">
+      <option value="${v.index}">${r}</option>
+   </c:forEach>
 </select>
-<select name="bookid">
-<c:forEach items="${booklist}" var="r">
-<option value="${r.id}">${r.name}</option>
-</c:forEach>
-</select>
+<select name="typeid">
+   <c:forEach items="${typelist}" var="r">
+      <option value="${r.id}">${r.name}</option>
+   </c:forEach>
+</select> 
 <input type="submit" value="确定新增">
 </form>
 </c:if>
@@ -31,14 +31,14 @@
 <input name="id" type="hidden" value="${info.id}">
 <input name="name" value="${info.name}">
 <select name="sex">
-<c:forEach items="${sexs}" var="r" varStatus="v">
-<option value="${v.index}" <c:if test="${info.sex==v.index}">selected="selected"</c:if>>${r}</option>
-</c:forEach>
+   <c:forEach items="${sexs}" var="r" varStatus="v">
+      <option value="${v.index}" <c:if test="${info.sex==v.index}">selected="selected"</c:if>>${r}</option>
+   </c:forEach>
 </select>
-<select name="bookid">
-<c:forEach items="${booklist}" var="r" varStatus="v">
-<option value="${r.id}" <c:if test="${info.bookid==r.id}">selected="selected"</c:if>>${r.name}</option>
-</c:forEach>
+<select name="typeid">
+   <c:forEach items="${typelist}" var="r" varStatus="v">
+      <option value="${r.id}" <c:if test="${info.typeid==r.id}">selected="selected"</c:if>>${r.name}</option>
+   </c:forEach>
 </select>
 <input type="submit" value="确定修改">
 </form>

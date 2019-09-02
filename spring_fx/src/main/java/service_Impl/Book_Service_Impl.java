@@ -15,8 +15,8 @@ public class Book_Service_Impl implements Book_Service{
 	@Autowired
 	Book_Dao dao;
 	
-	public List<Book> select(){
-		return dao.select();
+	public List<Book> select(String where){
+		return dao.select(where);
 	}
 	public Book selectById(int id) {
 		return dao.selectById(id);

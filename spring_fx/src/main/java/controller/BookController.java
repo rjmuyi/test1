@@ -4,56 +4,57 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import entity.Type;
+
+import entity.Book;
 import service.Book_Service;
 import service.Type_Service;
 
 @Controller
-public class testController {
+public class BookController {
 
 	@Autowired
-	Type_Service tservice;
+	Book_Service bservice;
 	
 	@Autowired
-	Book_Service bservice;
+	Type_Service tservice;
 	
 	@RequestMapping("index")
 	public String index(String name,ModelMap m) {
 		String where="";
 		if(name!=null&&name.length()>0)
-			where=" where type.name like '%"+name+"%'";
-		m.put("typelist", tservice.select(where));
+			where=" where book.name like '%"+name+"%'";
+		m.put("booklist", bservice.select(where));
 		return "index";
 	}
 	
 	@RequestMapping("delete")
 	public String delete(int id,ModelMap m) {
-		tservice.delete(id);
+		bservice.delete(id);
 		return index(null,m);
 	}
 	
 	@RequestMapping("insert")
-	public String insert(Type b,ModelMap m){
-		tservice.insert(b);
+	public String insert(Book b,ModelMap m){
+		bservice.insert(b);
 		return index(null,m);
 	}
 	
 	@RequestMapping("add")
 	public String add(ModelMap m){
-		m.put("sexs", Type.sexs);
-		m.put("booklist", bservice.select());
+		m.put("sexs", Book.sexs);
+		m.put("typelist", tservice.select());
 		return "edit";
 	}
 	
 	@RequestMapping("update")
-	public String update(Type b,ModelMap m){
-		tservice.update(b);
+	public String update(Book b,ModelMap m){
+		bservice.update(b);
 		return index(null,m);
 	}
 	
 	@RequestMapping("edit")
 	public String edit(int id,ModelMap m){
-		m.put("info", tservice.selectById(id));
+		m.put("info", bservice.selectById(id));
 		return add(m);
 	}
 	

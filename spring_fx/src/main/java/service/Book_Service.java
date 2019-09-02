@@ -6,7 +6,7 @@ import entity.Book;
 
 public interface Book_Service {
 
-	public List<Book> select();
+	public List<Book> select(String where);
 	
 	public Book selectById(int id);
 	

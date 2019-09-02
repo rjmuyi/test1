@@ -26,9 +26,9 @@ function del(id){
 <td>编号</td><td>名称</td><td>性别</td><td>类型</td><td>操作</td>
 </tr>
 
-<c:forEach items="${typelist}" var="r">
+<c:forEach items="${booklist}" var="r">
 <tr>
-<td>${r.id}</td><td>${r.name}</td><td>${r.sexname}</td><td>${r.bookname}</td>
+<td>${r.id}</td><td>${r.name}</td><td>${r.sexname}</td><td>${r.typename}</td>
 <td><a href="edit?id=${r.id}">修改</a></td>
 <td><a href="javascript:del(${r.id})">删除</a></td>
 </tr>
