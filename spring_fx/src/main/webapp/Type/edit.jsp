@@ -52,7 +52,16 @@
 				return false;
 			});
 		});
-
+		var id = "${param.id}";
+		function init() {
+			$.post("Book/edit",{id:id}, function(json) {
+				render('myform', json);
+			}, "json");
+		}
+		if (id.length > 0) {
+			init();
+		} else { 
+		}
 	</script>
 </body>
 </html>
