@@ -1,9 +1,12 @@
 package controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import entity.Type;
 import service.Type_Service;
@@ -16,41 +19,34 @@ public class TypeController {
 	Type_Service tservice;
 	
 	@RequestMapping("index")
-	public String index(String name,ModelMap m) {
-		String where="";
-		if(name!=null&&name.length()>0)
-			where=" where type.name like '%"+name+"%'";
-		m.put("typelist", tservice.select(where));
-		return "Type/index";
+	public @ResponseBody List<Type> index(String txt,ModelMap m) {
+		if(txt!=null&&txt.length()>0)
+			txt=" where book.name like '%"+txt+"%'";
+		return tservice.select(txt);
 	}
 	
 	@RequestMapping("delete")
-	public String delete(int id,ModelMap m) {
+	public @ResponseBody String delete(int id,ModelMap m) {
 		tservice.delete(id);
-		return index(null,m);
+		return "{\"status\":1}";
 	}
 	
 	@RequestMapping("insert")
-	public String insert(Type b,ModelMap m){
+	public @ResponseBody String insert(Type b,ModelMap m){
 		tservice.insert(b);
-		return index(null,m);
+		return "{\"status\":1}";
 	}
 	
-	@RequestMapping("add")
-	public String add(ModelMap m){
-		return "Type/edit";
-	}
 	
 	@RequestMapping("update")
-	public String update(Type b,ModelMap m){
+	public @ResponseBody String update(Type b,ModelMap m){
 		tservice.update(b);
-		return index(null,m);
+		return "{\"status\":1}";
 	}
 	
 	@RequestMapping("edit")
-	public String edit(int id,ModelMap m){
-		m.put("info", tservice.selectById(id));
-		return add(m);
+	public @ResponseBody Type edit(int id,ModelMap m){
+		return tservice.selectById(id);
 	}
 	
 }

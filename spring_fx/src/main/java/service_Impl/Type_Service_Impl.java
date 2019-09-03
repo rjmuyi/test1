@@ -15,8 +15,8 @@ public class Type_Service_Impl implements Type_Service{
 	@Autowired
 	Type_Dao dao;
 	
-	public List<Type> select(String where){
-		return dao.select(where);
+	public List<Type> select(String txt){
+		return dao.select(txt);
 	}
 	public Type selectById(int id) {
 		return dao.selectById(id);

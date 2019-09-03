@@ -14,8 +14,11 @@ import entity.Book;
 @Repository
 public interface Book_Dao {
 
-	@Select("select book.*,type.name typename from book inner join type on book.typeid=type.id ${where}")
-	public List<Book> select(@Param("where") String where);
+	@Select("select count(1) from Book inner join Type on type.id=book.typeid  ${txt}")
+	public int selectCount(@Param("txt") String txt);
+	
+	@Select("select book.*,type.name typename from book inner join type on book.typeid=type.id ${txt} ${limit}")
+	public List<Book> select(@Param("txt") String txt,@Param("limit") String limit);
 	
 	@Select("select * from book where id=#{id}")
 	public Book selectById(int id);

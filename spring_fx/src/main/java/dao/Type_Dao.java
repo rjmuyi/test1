@@ -14,8 +14,8 @@ import entity.Type;
 @Repository
 public interface Type_Dao {
 
-	@Select("select * from Type ${where}")
-	public List<Type> select(@Param("where") String where);
+	@Select("select * from Type ${txt}")
+	public List<Type> select(@Param("txt") String txt);
 	
 	@Select("select * from Type where id=#{id}")
 	public Type selectById(int id);

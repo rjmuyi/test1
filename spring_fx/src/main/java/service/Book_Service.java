@@ -1,12 +1,11 @@
 package service;
 
-import java.util.List;
-
 import entity.Book;
+import utils.ReturnInfo;
 
 public interface Book_Service {
 
-	public List<Book> select(String where);
+	public ReturnInfo select(String txt,Integer page,Integer limit);
 	
 	public Book selectById(int id);
 	

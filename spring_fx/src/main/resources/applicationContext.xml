@@ -19,13 +19,16 @@
 
  <!-- 注解驱动 -->
     <mvc:annotation-driven/>
+    <mvc:resources location="/layui/" mapping="/layui/**"></mvc:resources>
+    <mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+    <mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
     
     <!-- 处理器映射器 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
    
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"  />
+        <property name="prefix" value="/"  />
         <property name="suffix" value=".jsp"/>
     </bean>
     
