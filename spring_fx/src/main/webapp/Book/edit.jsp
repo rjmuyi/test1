@@ -71,15 +71,15 @@
 		function init() {
 			$.post("Book/edit",{id:id}, function(json) {
 				render('myform', json);
-				getarray("Book/getSexs", {}, "[name=sex]", json.sex);
-				getlist("Book/getTypes", {}, "[name=typeid]", json.typeid);
+				getarray("Book/getSexs", {_method:"GET"}, "[name=sex]", json.sex);
+				getlist("Book/getTypes", {_method:"GET"}, "[name=typeid]", json.typeid);
 			}, "json");
 		}
-		if (id.length > 0) {
+		if (id!=null&&id.length > 0) {
 			init();
 		} else { 
-			getarray("Book/getSexs", {}, "[name=sex]", 0);
-			getlist("Book/getTypes", {}, "[name=typeid]", 0);
+			getarray("Book/getSexs", {_method:"GET"}, "[name=sex]", 0);
+			getlist("Book/getTypes", {_method:"GET"}, "[name=typeid]", 0);
 		}
 	</script>
 </body>

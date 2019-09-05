@@ -52,16 +52,7 @@
 				return false;
 			});
 		});
-		var id = "${param.id}";
-		function init() {
-			$.post("Type/edit",{id:id}, function(json) {
-				render('myform', json);
-			}, "json");
-		}
-		if (id.length > 0) {
-			init();
-		} else { 
-		}
+
 	</script>
 </body>
 </html>
