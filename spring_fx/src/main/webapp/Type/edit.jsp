@@ -54,7 +54,7 @@
 		});
 		var id = "${param.id}";
 		function init() {
-			$.post("Book/edit",{id:id}, function(json) {
+			$.post("Type/edit",{id:id}, function(json) {
 				render('myform', json);
 			}, "json");
 		}

@@ -21,7 +21,7 @@ public class TypeController {
 	@RequestMapping("index")
 	public @ResponseBody List<Type> index(String txt,ModelMap m) {
 		if(txt!=null&&txt.length()>0)
-			txt=" where book.name like '%"+txt+"%'";
+			txt=" where type.name like '%"+txt+"%'";
 		return tservice.select(txt);
 	}
 	
