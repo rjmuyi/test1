@@ -1,17 +1,8 @@
 package service;
 
 import entity.Book;
-import utils.ReturnInfo;
 
-public interface Book_Service {
+public interface Book_Service extends Basic_Service<Book>{
 
-	public ReturnInfo select(String txt,Integer page,Integer limit);
-	
-	public Book selectById(int id);
-	
-	public void delete(int id);
-	
-	public void insert(Book t);
-	
-	public void update(Book t);
+
 }

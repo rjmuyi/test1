@@ -11,7 +11,7 @@ public class ReturnInfo {
 	public static String getLimit(Integer page, Integer max) {
 		if (page == null||max==null)
 			return "";
-		return " limit " + ((page - 1) * max) + "," + max;
+		return " limit "+((page-1)*max)+","+max;
 	}
 
 	public int getCount() {

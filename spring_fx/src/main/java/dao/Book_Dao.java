@@ -14,21 +14,24 @@ import entity.Book;
 @Repository
 public interface Book_Dao {
 
-	@Select("select count(1) from Book inner join Type on type.id=book.typeid  ${txt}")
-	public int selectCount(@Param("txt") String txt);
+	@Select("select count(1) from  Book   ${where}")
+	public  Integer getCount(@Param("where") String where);
 	
-	@Select("select book.*,type.name typename from book inner join type on book.typeid=type.id ${txt} ${limit}")
-	public List<Book> select(@Param("txt") String txt,@Param("limit") String limit);
-	
-	@Select("select * from book where id=#{id}")
-	public Book selectById(int id);
-	
-	@Delete("delete from book where id=#{id}")
-	public void delete(int id);
-	
-	@Insert("insert into book(name,sex,typeid) values(#{name},#{sex},#{typeid})")
-	public void insert(Book t);
-	
-	@Update("update book set name=#{name},sex=#{sex},typeid=#{typeid} where id=#{id}")
-	public void update(Book t);
+	@Select("select Book.*,type.name typename from  Book inner join type on book.typeid=type.id   ${where}  ${limit}")
+	public  List<Book> getWhere(@Param("where") String where,@Param("limit") String limit);
+
+	@Select("select Book.* from  Book ")
+	public  List<Book> getAll();
+
+	@Select("select Book.* from Book  where id=#{id}")
+	public  Book getByid(@Param("id")Integer id);
+
+	@Delete("delete from Book where id=#{id}")
+	public Integer delete(@Param("id")Integer id);
+
+	@Insert("insert into Book (name,sex,typeid) values(#{name},#{sex},#{typeid})")
+	public Integer insert(Book t);
+
+	@Update("update Book set name=#{name},sex=#{sex},typeid=#{typeid} where id=#{id}")
+	public Integer update(Book t);
 }

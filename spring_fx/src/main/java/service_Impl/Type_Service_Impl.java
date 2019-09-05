@@ -1,7 +1,5 @@
 package service_Impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,24 +8,9 @@ import entity.Type;
 import service.Type_Service;
 
 @Service
-public class Type_Service_Impl implements Type_Service{
+public class Type_Service_Impl extends Basic_Service_Impl<Type> implements Type_Service{
 
 	@Autowired
 	Type_Dao dao;
 	
-	public List<Type> select(String txt){
-		return dao.select(txt);
-	}
-	public Type selectById(int id) {
-		return dao.selectById(id);
-	}
-	public void delete(int id) {
-		dao.delete(id);
-	}
-	public void insert(Type t) {
-		dao.insert(t);
-	}
-	public void update(Type t) {
-		dao.update(t);
-	}
 }

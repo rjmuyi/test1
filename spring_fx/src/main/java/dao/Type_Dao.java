@@ -14,18 +14,24 @@ import entity.Type;
 @Repository
 public interface Type_Dao {
 
-	@Select("select * from Type ${txt}")
-	public List<Type> select(@Param("txt") String txt);
-	
-	@Select("select * from Type where id=#{id}")
-	public Type selectById(int id);
-	
+	@Select("select count(1) from  Type   ${where}")
+	public  Integer getCount(@Param("where") String where);
+
+	@Select("select Type.* from  Type   ${where} ${limit}")
+	public  List<Type> getWhere(@Param("where") String where,@Param("limit") String limit);
+
+	@Select("select Type.* from  Type ")
+	public  List<Type> getAll();
+
+	@Select("select Type.* from Type  where id=#{id}")
+	public  Type getByid(@Param("id")Integer id);
+
 	@Delete("delete from Type where id=#{id}")
-	public void delete(int id);
-	
-	@Insert("insert into Type(name) values(#{name})")
-	public void insert(Type t);
-	
-	@Update("update Type set name=#{name} where id=#{id}")
-	public void update(Type t);
+	public Integer delete(@Param("id")Integer id);
+
+	 @Insert("insert into Type (name) values(#{name})")
+	 public Integer insert(Type t);
+
+	 @Update("update Type set name=#{name} where id=#{id}")
+	 public Integer update(Type t);
 }
