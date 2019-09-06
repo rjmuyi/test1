@@ -117,7 +117,7 @@
 				if (obj.event === 'search') {
 					var txt = $(event.target).prev().find("input").val();
 					reload('demo',{where: txt,_metod:"GET"});
-				} else {
+				} else if (obj.event === 'add'){
 					openFrame("Book/edit.jsp","新增",['340px', '60%']);
 				}
 			});
