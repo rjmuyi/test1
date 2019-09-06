@@ -21,7 +21,6 @@
 
 <form class="layui-form" lay-filter="myform">
 <input type="hidden" name="id" >
-
   <div class="layui-form-item">
     <label class="layui-form-label">名称</label>
     <div class="layui-input-block">
